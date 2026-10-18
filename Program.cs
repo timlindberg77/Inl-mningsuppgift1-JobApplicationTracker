@@ -10,125 +10,132 @@ namespace Inlämningsuppgift1_JobApplicationTracker
     {
         static void Main(string[] args)
         {
-//            ⚙️ Instruktioner
-//Skapa ett nytt C# Console Project.
-//Skapa minst två klasser:
-//            JobApplication – representerar en enskild ansökan.
-//JobManager – ansvarar för att hantera alla ansökningar(listan, logik och LINQ).
+            //⚙️ Instruktioner
+            //Skapa ett nytt C# Console Project.
+            //Skapa minst två klasser:
+            //JobApplication – representerar en enskild ansökan.
+            //JobManager – ansvarar för att hantera alla ansökningar(listan, logik och LINQ).
 
-//I Program.cs ska du skapa ett menysystem som körs i en while-loop och använder switch för val.
-//Implementera minst tre LINQ-operationer för att filtrera, sortera eller beräkna data.
-//Koden ska vara välstrukturerad, kommenterad, och enhetligt namngiven.
-//Projektet ska hanteras via Git & GitHub enligt kravspecifikationen nedan.
+            //I Program.cs ska du skapa ett menysystem som körs i en while-loop och använder switch för val.
+            bool keepProgramAlive = true; //true or false för att ha en whileloop för menyn
 
+            //Implementera minst tre LINQ-operationer för att filtrera, sortera eller beräkna data.
+            //Koden ska vara välstrukturerad, kommenterad, och enhetligt namngiven.
+            //Projektet ska hanteras via Git & GitHub enligt kravspecifikationen nedan.
+            while (keepProgramAlive)
+            {
+            Console.WriteLine($"Välkommen!\n" +
+                $"1: Lägg till ny ansökan\n" +
+                $"2: Visa alla ansökningar\n" +
+                $"3: Filtrera ansökningar efter status\n" + // (LINQ) (VG del)
+                $"4: Sortera ansökningar efter datum\n" + // (OrderBy) (VG del)
+                $"5: Visa statistik\n" + //Totalt antal ansökningar, Antal per status (VG del), Genomsnittlig svarstid (VG del)
+                $"6: Uppdatera status på en ansökan\n" +
+                $"7: Ta bort en ansökan\n" +
+                $"8: Avsluta programmet");
 
-//📋 Kravspecifikation(Programdel)
+                string menyUserAnswer = Console.ReadLine()!;
+                
+                switch (menyUserAnswer)
+                {
+                    case "1":
+                        //Lägger till ansökan
+                        break;
 
-//🔹 Klass: JobApplication
+                    case "2":
+                        //visar ansökan
+                        break;
 
-//Attributer :
-//CompanyName | string
-//PositionTitle | string
-//Status | enum - (Applied, Interview, Offer, Rejected)
-//ApplicationDate | DateTime - Datum när ansökan skickades
-//ResponseDate | DateTime? - Datum när svar mottogs
-//SalaryExpectation | int - Önskad lön i kronor
+                    case "3":
+                        //Filtrera ansökan
+                        break;
 
-//Metoder:
-//GetDaysSinceApplied() – returnerar antal dagar sedan ansökan skickades.
-//GetSummary() – returnerar en kort sammanfattning av ansökan.
+                    case "4":
+                        //Sortera ansökan
+                        break;
 
+                    case "5":
+                        //visa statistik
+                        break;
 
-//🔹 Klass: JobManager
+                    case "6":
+                        //Uppdatera status
+                        break;
 
-//Attributer :
-//Applications | List<JobApplication> - Samling av alla ansökningar
+                    case "7":
+                        //ta bort ansökan
+                        break;
 
-//Metoder:
-//AddJob() – lägger till en ny ansökan
-//UpdateStatus() – ändrar status på en befintlig ansökan
-//ShowAll() – visar alla ansökningar
-//ShowByStatus() – filtrerar med LINQ efter status (VG del)
-//ShowStatistics() – visar statistik med LINQ (Count, Average, OrderBy, Where) (VG del)
+                    case "8":
+                        keepProgramAlive = false;
+                        break;
 
+                    default:
+                        Console.WriteLine($"{menyUserAnswer} är inte ett alternativ ");
+                        break;
+                    
+                }
 
-//🧭 Meny (krav)
+                //🧮 LINQ (krav) (VG del)
+                //Minst 3 LINQ-operationer ska användas i projektet.Exempel:
 
-//Programmet ska innehålla minst följande alternativ:
-//➕ Lägg till ny ansökan
-//📋 Visa alla ansökningar
-//🔍 Filtrera ansökningar efter status (LINQ) (VG del)
-//📅 Sortera ansökningar efter datum (OrderBy) (VG del)
-//📊 Visa statistik:
-//Totalt antal ansökningar
-//Antal per status (VG del)
-//Genomsnittlig svarstid (VG del)
-
-//✏️ Uppdatera status på en ansökan
-//🗑️ Ta bort en ansökan
-//💾 Avsluta programmet
-
-
-//🧮 LINQ (krav) (VG del)
-//Minst 3 LINQ-operationer ska användas i projektet.Exempel:
-
-//var interviews = Applications.Where(a => a.Status == Status.Interview);
-//        var ordered = Applications.OrderBy(a => a.ApplicationDate);
-//        var averageResponseTime = Applications
-//            .Where(a => a.ResponseDate != null)
-//            .Average(a => (a.ResponseDate - a.ApplicationDate)?.TotalDays);
-
-
-
-//🌿 GitHub & Versionshantering(krav)
-//Projektet ska hanteras i ett GitHub Repository med följande krav:
-
-//🏗️ Minst 3 grenar(branches)
-//T.ex.main, development, feature-linq, feature-menu, etc.
-
-//🔄 Minst 3 Pull Requests
-//Varje PR ska representera en tydlig del av arbetet(t.ex. “Lade till LINQ-filter”).
-
-//🔒 Branch Protection Rules ska vara aktiverade för main-grenen
-//Ingen push direkt till main utan PR.
-
-//🧩 Beskrivningar i PRs – varje Pull Request ska ha en kort sammanfattning av vad som lagts till/förändrats.
-
-//🕓 Minst 5 commits totalt, med tydliga meddelanden(Added JobManager class, Implemented LINQ filters, etc.).
-
-//📂 README.md ska finnas i repot, med:
-
-//Projektbeskrivning
-//Hur man kör programmet
-//Ditt namn och datum och reflektion(frågor finns längre ner här)
+                //var interviews = Applications.Where(a => a.Status == Status.Interview);
+                //var ordered = Applications.OrderBy(a => a.ApplicationDate);
+                //var averageResponseTime = Applications
+                //.Where(a => a.ResponseDate != null)
+                //.Average(a => (a.ResponseDate - a.ApplicationDate)?.TotalDays);
 
 
-//💡 Bonusnivå(VG)
-//För högre betyg :
-//Använd färger i konsolen(t.ex.grön = Offer, röd = Rejected)
-//ShowByStatus() – filtrerar ansökningar med LINQ efter status
-//ShowStatistics() – visar ansökningar statistik med LINQ(Count, Average, OrderBy, Where)
-//Skapa ett extra filter, t.ex. “Visa ansökningar utan svar äldre än 14 dagar”
-//Implementera enkel felhantering(t.ex.ogiltig input)
-//Strukturera klasserna i separata filer för extra ren kod
+
+                //🌿 GitHub & Versionshantering(krav)
+                //Projektet ska hanteras i ett GitHub Repository med följande krav:
+
+                //🏗️ Minst 3 grenar(branches)
+                //T.ex.main, development, feature-linq, feature-menu, etc.
+
+                //🔄 Minst 3 Pull Requests
+                //Varje PR ska representera en tydlig del av arbetet(t.ex. “Lade till LINQ-filter”).
+
+                //🔒 Branch Protection Rules ska vara aktiverade för main-grenen
+                //Ingen push direkt till main utan PR.
+
+                //🧩 Beskrivningar i PRs – varje Pull Request ska ha en kort sammanfattning av vad som lagts till/förändrats.
+
+                //🕓 Minst 5 commits totalt, med tydliga meddelanden(Added JobManager class, Implemented LINQ filters, etc.).
+
+                //📂 README.md ska finnas i repot, med:
+
+                //Projektbeskrivning
+                //Hur man kör programmet
+                //Ditt namn och datum och reflektion(frågor finns längre ner här)
 
 
-//💬 Reflektionsfrågor(för inlämning)
-//Besvara kort i en separat textfil:
-//Hur hjälpte LINQ dig att skriva renare kod?
-//Vilken del av projektet var mest utmanande, och hur löste du den?
+                //💡 Bonusnivå(VG)
+                //För högre betyg :
+                //Använd färger i konsolen(t.ex.grön = Offer, röd = Rejected)
+                //ShowByStatus() – filtrerar ansökningar med LINQ efter status
+                //ShowStatistics() – visar ansökningar statistik med LINQ(Count, Average, OrderBy, Where)
+                //Skapa ett extra filter, t.ex. “Visa ansökningar utan svar äldre än 14 dagar”
+                //Implementera enkel felhantering(t.ex.ogiltig input)
+                //Strukturera klasserna i separata filer för extra ren kod
 
-//📦 Inlämning
-//Lämna in länken till ditt GitHub Repository i Learnpoint kommentarfältet.
 
-//Se till att repot är offentligt (Public) eller delat med läraren.
+                //💬 Reflektionsfrågor(för inlämning)
+                //Besvara kort i en separat textfil:
+                //Hur hjälpte LINQ dig att skriva renare kod?
+                //Vilken del av projektet var mest utmanande, och hur löste du den?
 
-//Kontrollera att du har:
-// ✅ Minst 3 branches
-// ✅ Minst 3 pull requests
-// ✅ README.md
-// ✅ Branch protection aktiv
+                //📦 Inlämning
+                //Lämna in länken till ditt GitHub Repository i Learnpoint kommentarfältet.
 
+                //Se till att repot är offentligt (Public) eller delat med läraren.
+
+                //Kontrollera att du har:
+                // ✅ Minst 3 branches
+                // ✅ Minst 3 pull requests
+                // ✅ README.md
+                // ✅ Branch protection aktiv
+            }
         }
 }
 }
