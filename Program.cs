@@ -13,7 +13,7 @@ namespace Inlämningsuppgift1_JobApplicationTracker
         static void Main(string[] args)
         {
             bool keepProgramAlive = true; //true or false för att ha en whileloop för menyn
-            JobManager manage = new JobManager();
+            JobManager manage = new JobManager(); //objekt
             TestData.AddSampleApplications(manage);
             while (keepProgramAlive)
             {
@@ -24,37 +24,30 @@ namespace Inlämningsuppgift1_JobApplicationTracker
                 {
                     case "1":
                         manage.AddJob();
-                        MenyFunktioner.MenuClear();
                         break;
 
                     case "2":
                         manage.ShowAll();
-                        MenyFunktioner.MenuClear();
                         break;
 
                     case "3":
                         manage.ShowByStatus();
-                        MenyFunktioner.MenuClear();
                         break;
 
                     case "4":
                         manage.ShowByDate();
-                        MenyFunktioner.MenuClear();
                         break;
 
                     case "5":
                         manage.ShowStatistics();
-                        MenyFunktioner.MenuClear();
                         break;
 
                     case "6":
                         manage.UpdateStatus();
-                        MenyFunktioner.MenuClear();
                         break;
 
                     case "7":
                         manage.RemoveApplication();
-                        MenyFunktioner.MenuClear();
                         break;
 
                     case "8":
@@ -65,6 +58,10 @@ namespace Inlämningsuppgift1_JobApplicationTracker
                         Console.WriteLine($"{menyUserAnswer} är inte ett alternativ ");
                         break;
                     
+                }
+                if (keepProgramAlive)
+                {
+                    MenyFunktioner.MenuClear();
                 }
 
                 //🕓 Minst 5 commits totalt, med tydliga meddelanden(Added JobManager class, Implemented LINQ filters, etc.).
