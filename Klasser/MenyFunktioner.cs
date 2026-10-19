@@ -26,5 +26,60 @@ namespace Inlämningsuppgift1_JobApplicationTracker.Klasser
             $"7: Ta bort en ansökan\n" +
             $"8: Avsluta programmet");
         }
+        public static void Program()
+        {
+            bool keepProgramAlive = true; //true or false för att ha en whileloop för menyn
+            JobManager manage = new JobManager(); //objekt
+            TestData.AddSampleApplications(manage);
+            while (keepProgramAlive)
+            {
+                Menu();
+                string menyUserAnswer = Console.ReadLine()!;
+
+                switch (menyUserAnswer)
+                {
+                    case "1":
+                        manage.AddJob();
+                        break;
+
+                    case "2":
+                        manage.ShowAll();
+                        break;
+
+                    case "3":
+                        manage.ShowByStatus();
+                        break;
+
+                    case "4":
+                        manage.ShowByDate();
+                        break;
+
+                    case "5":
+                        manage.ShowStatistics();
+                        break;
+
+                    case "6":
+                        manage.UpdateStatus();
+                        break;
+
+                    case "7":
+                        manage.RemoveApplication();
+                        break;
+
+                    case "8":
+                        keepProgramAlive = false;
+                        break;
+
+                    default:
+                        Console.WriteLine($"{menyUserAnswer} är inte ett alternativ ");
+                        break;
+
+                }
+                if (keepProgramAlive)
+                {
+                    MenuClear();
+                }
+            }
+        }
     }
 }
