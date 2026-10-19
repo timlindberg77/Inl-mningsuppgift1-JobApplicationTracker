@@ -18,7 +18,7 @@ namespace Inlämningsuppgift1_JobApplicationTracker.Klasser
         }
         public ApplicationStatus Status { get; set; }
         public DateTime ApplicationDate { get; set; }
-        public DateTime ResponseDate { get; set; }
+        public DateTime? ResponseDate { get; set; }
         public int SalaryExpectation { get; set; }
         public int GetDaysSinceApplied() //returnerar antal dagar sedan ansökan skickades.
         {
