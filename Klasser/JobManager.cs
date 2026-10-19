@@ -173,7 +173,16 @@ namespace Inlämningsuppgift1_JobApplicationTracker.Klasser
             var ordered = Applications.OrderBy(application => application.ApplicationDate);
             foreach (var application in ordered)
             {
-                Console.WriteLine(application.GetSummary());
+                if (application.ResponseDate == null && application.GetDaysSinceApplied() >= 14)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(application.GetSummary());
+                    Console.ResetColor();
+                }
+                else
+                {
+                    Console.WriteLine(application.GetSummary());
+                }       
             }
         }
     }
