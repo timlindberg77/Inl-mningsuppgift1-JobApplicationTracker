@@ -101,12 +101,6 @@ Skapa ett extra filter, t.ex. “Visa ansökningar utan svar äldre än 14 dagar
 Implementera enkel felhantering (t.ex. ogiltig input)
 Strukturera klasserna i separata filer för extra ren kod
 
-
-💬 Reflektionsfrågor (för inlämning)
-Besvara kort i en separat textfil:
-Hur hjälpte LINQ dig att skriva renare kod?
-Vilken del av projektet var mest utmanande, och hur löste du den?
-
 📦 Inlämning
 Lämna in länken till ditt GitHub Repository i Learnpoint kommentarfältet.
 
@@ -117,3 +111,14 @@ Kontrollera att du har:
  ✅ Minst 3 pull requests
  ✅ README.md
  ✅ Branch protection aktiv
+
+ 💬 Reflektionsfrågor (för inlämning)
+Besvara kort i en separat textfil:
+Hur hjälpte LINQ dig att skriva renare kod?
+Linq underlättar för att filtrera informationenon.
+
+Vilken del av projektet var mest utmanande, och hur löste du den?
+
+remove application och uppdate  kan bli bättre när det gäller dubletter,
+
+progrmera på fel sätt, skulle testat varje från början utan skapade alla metoder först och sedan testa dem.
