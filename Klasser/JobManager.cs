@@ -85,7 +85,7 @@ namespace Inlämningsuppgift1_JobApplicationTracker.Klasser
             }
             foreach (var application in Applications)
             {
-                Console.WriteLine(application.GetSummary());
+                Console.WriteLine(application.GetSummary()); //Loop som använder JobApplication metoden
             }
             
         }
@@ -135,6 +135,45 @@ namespace Inlämningsuppgift1_JobApplicationTracker.Klasser
             else
             {
                 Console.WriteLine("Genomsnittlig svarstid: inga svar än.");
+            }
+        }
+
+        public void RemoveApplication() //Ta bort en ansökan
+        {
+            if (Applications.Count == 0)
+            {
+                Console.WriteLine("Finns inga ansökan");
+                return;
+            }
+            Console.WriteLine("Vilket företag vill du ta bort?");
+            string userInput = Console.ReadLine()!;
+            //Linq som söker efter ansökan där companyname matchar och ignorerar stora/små bokstäver
+            var matchingApplication = Applications.FirstOrDefault(application => application.CompanyName.Equals(userInput, StringComparison.OrdinalIgnoreCase));
+
+            if (matchingApplication == null) //Ifall inget userINput inte matcher med någon companyname
+            {
+                Console.WriteLine("Hittade ingen matchande ansökan");
+                return;
+            }
+            else
+            {
+                Applications.Remove(matchingApplication);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ansökan borttagen");
+                Console.ResetColor();
+            }
+        }
+        public void ShowByDate()   //Skapa ett extra filter, t.ex. “Visa ansökningar utan svar äldre än 14 dagar”
+        {
+            if (Applications.Count == 0)
+            {
+                Console.WriteLine("Finns inga ansökan");
+                return;
+            }
+            var ordered = Applications.OrderBy(application => application.ApplicationDate);
+            foreach (var application in ordered)
+            {
+                Console.WriteLine(application.GetSummary());
             }
         }
     }
