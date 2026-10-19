@@ -64,9 +64,6 @@ namespace Inlämningsuppgift1_JobApplicationTracker
                     MenyFunktioner.MenuClear();
                 }
 
-                //🕓 Minst 5 commits totalt, med tydliga meddelanden(Added JobManager class, Implemented LINQ filters, etc.).
-                //📂 README.md ska finnas i repot, med:
-
                 //Projektbeskrivning
                 //Hur man kör programmet
                 //Ditt namn och datum och reflektion(frågor finns längre ner här)

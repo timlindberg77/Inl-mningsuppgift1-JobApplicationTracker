@@ -22,7 +22,7 @@ namespace Inlämningsuppgift1_JobApplicationTracker.Klasser
 
             Console.WriteLine("Önskad lön (kr): ");
             int salary;
-            while (!int.TryParse(Console.ReadLine(), out salary))
+            while (!int.TryParse(Console.ReadLine(), out salary) || salary <= 0)
             {
                 Console.WriteLine("Ogiltigt, skriv ett heltal: ");
             }
